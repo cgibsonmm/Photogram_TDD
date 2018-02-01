@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
+gem 'simple_form'
+gem 'paperclip', "~> 5.2.1"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.7'
