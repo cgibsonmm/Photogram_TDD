@@ -7,8 +7,8 @@ RSpec.describe 'Displaying indivdual posts' do
   end
 
   scenario 'can view single post' do
-    post_one = create(:post, caption: 'This is one to click')
-    post_two = create(:post, caption: 'This is post two.')
+    post_one = create(:post, caption: 'This is one to click', user_id: 1)
+    post_two = create(:post, caption: 'This is post two.', user_id: 1)
 
     visit '/'
     find(:xpath, "//a[contains(@href, 'posts/1')]").click

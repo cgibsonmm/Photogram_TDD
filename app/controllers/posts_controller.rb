@@ -1,16 +1,16 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @posts = Post.all.order('created_at DESC')
   end
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "Your post has been created."
       redirect_to @post

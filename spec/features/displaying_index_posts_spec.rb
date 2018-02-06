@@ -8,8 +8,8 @@ RSpec.feature 'View post index' do
   end
 
   scenario 'can see index of all posts' do
-    post_one = create(:post, caption: 'This is post one.')
-    post_two = create(:post, caption: 'This is post two.')
+    post_one = create(:post, caption: 'This is post one.', user_id: 1)
+    post_two = create(:post, caption: 'This is post two.', user_id: 1)
 
     visit '/'
     expect(page).to have_content('This is post one.')

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Deleting Post' do
   background do
     user = create(:user)
-    post = create(:post, caption: 'delete this post')
+    post = create(:post, caption: 'delete this post', user_id: 1)
 
     sign_in_with user
 

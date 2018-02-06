@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Edit post' do
   background do
     user = create(:user)
-    post = create(:post, caption: 'Opps!')
+    post = create(:post, caption: 'Opps!', user_id: 1)
 
     sign_in_with user
 
