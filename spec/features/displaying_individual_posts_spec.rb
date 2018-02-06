@@ -3,11 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Displaying indivdual posts' do
   before do
     user = create(:user)
-
-    visit '/'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    sign_in_with user
   end
 
   scenario 'can view single post' do

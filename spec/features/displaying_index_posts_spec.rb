@@ -4,10 +4,7 @@ RSpec.feature 'View post index' do
   before do
     user = create(:user)
 
-    visit '/'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    sign_in_with user
   end
 
   scenario 'can see index of all posts' do
