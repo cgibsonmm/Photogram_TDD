@@ -2,6 +2,13 @@ require 'rails_helper'
 
 RSpec.feature 'Deleting Post' do
   background do
+    user = create(:user)
+    
+    visit '/'
+    fill_in 'Email', with: 'test@test.com'
+    fill_in 'Password', with: 'testpassword'
+    click_button 'Log in'
+
     post = create(:post, caption: 'delete this post')
     visit '/'
     find(:xpath, "//a[contains(@href, 'posts/1')]").click

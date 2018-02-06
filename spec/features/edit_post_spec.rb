@@ -2,6 +2,13 @@ require 'rails_helper'
 
 RSpec.feature 'Edit post' do
   background do
+    user = create(:user)
+
+    visit '/'
+    fill_in 'Email', with: 'test@test.com'
+    fill_in 'Password', with: 'testpassword'
+    click_button 'Log in'
+    
     post = create(:post, caption: 'Opps!')
 
     visit '/'

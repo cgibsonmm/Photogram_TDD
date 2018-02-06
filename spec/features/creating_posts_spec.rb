@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.feature 'Creating posts' do
+  before do
+    user = create(:user)
+
+    visit '/'
+    fill_in 'Email', with: 'test@test.com'
+    fill_in 'Password', with: 'testpassword'
+    click_button 'Log in'
+  end
   context 'it can create a post' do
     scenario 'can create a post' do
       visit '/'
