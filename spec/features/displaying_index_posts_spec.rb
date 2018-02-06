@@ -5,10 +5,11 @@ RSpec.feature 'View post index' do
     user = create(:user)
 
     visit '/'
-    fill_in 'Email', with: 'test@test.com'
-    fill_in 'Password', with: 'testpassword'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
     click_button 'Log in'
   end
+
   scenario 'can see index of all posts' do
     post_one = create(:post, caption: 'This is post one.')
     post_two = create(:post, caption: 'This is post two.')

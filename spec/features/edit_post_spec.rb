@@ -3,15 +3,13 @@ require 'rails_helper'
 RSpec.feature 'Edit post' do
   background do
     user = create(:user)
-
-    visit '/'
-    fill_in 'Email', with: 'test@test.com'
-    fill_in 'Password', with: 'testpassword'
-    click_button 'Log in'
-    
     post = create(:post, caption: 'Opps!')
 
     visit '/'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
+
     find(:xpath, "//a[contains(@href, 'posts/1')]").click
     click_link 'Edit Post'
   end
