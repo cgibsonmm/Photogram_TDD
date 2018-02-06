@@ -1,8 +1,8 @@
-%h1 Edit Post
-
-= simple_form_for @post do |f|
-  = f.input :image
-  = f.input :caption
-  = f.submit
-
-= link_to 'Delete Post', post_path(@post), method: :delete
+.text-center
+  = image_tag @post.image.url(:medium)
+.form-wrapper
+  = render 'form'
+.text-center.edit-links
+  = link_to "Delete Post", post_path(@post), method: :delete, data: {confirm: 'Are you sure?'}
+  |
+  = link_to 'Cancel', posts_path
