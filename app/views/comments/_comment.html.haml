@@ -1,0 +1,7 @@
+.user-name
+  = comment.user.username
+.comment-content
+  = comment.content
+- if comment.user == current_user
+  = link_to 'delete'
+%br
